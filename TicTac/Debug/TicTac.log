@@ -1,0 +1,37 @@
+﻿Build started 21/07/2012 13:48:12.
+     1>Project "C:\Users\David\documents\visual studio 2010\Projects\TicTac\TicTac\TicTac.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\TicTac.unsuccessfulbuild".
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt AIPlayer.cpp HumanPlayer.cpp Player.cpp TicTac.cpp
+         TicTac.cpp
+         HumanPlayer.cpp
+         AIPlayer.cpp
+         Generating Code...
+         Compiling...
+         Player.cpp
+         Generating Code...
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\TicTac.exe.embed.manifest.res" Debug\TicTac_manifest.rc 
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\David\documents\visual studio 2010\Projects\TicTac\Debug\TicTac.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\TicTac.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\David\documents\visual studio 2010\Projects\TicTac\Debug\TicTac.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\David\documents\visual studio 2010\Projects\TicTac\Debug\TicTac.lib" /MACHINE:X86 Debug\TicTac.exe.embed.manifest.res
+         Debug\AI.obj
+         Debug\AIPlayer.obj
+         Debug\Board.obj
+         Debug\HumanPlayer.obj
+         Debug\Player.obj
+         Debug\TicTac.obj
+     1>AIPlayer.obj : error LNK2019: unresolved external symbol "public: virtual __thiscall AIPlayer::~AIPlayer(void)" (??1AIPlayer@@UAE@XZ) referenced in function "public: virtual void * __thiscall AIPlayer::`scalar deleting destructor'(unsigned int)" (??_GAIPlayer@@UAEPAXI@Z)
+     1>HumanPlayer.obj : error LNK2019: unresolved external symbol "public: virtual __thiscall HumanPlayer::~HumanPlayer(void)" (??1HumanPlayer@@UAE@XZ) referenced in function "public: virtual void * __thiscall HumanPlayer::`scalar deleting destructor'(unsigned int)" (??_GHumanPlayer@@UAEPAXI@Z)
+     1>Player.obj : error LNK2019: unresolved external symbol "public: virtual __thiscall Player::~Player(void)" (??1Player@@UAE@XZ) referenced in function "public: virtual void * __thiscall Player::`scalar deleting destructor'(unsigned int)" (??_GPlayer@@UAEPAXI@Z)
+     1>TicTac.obj : error LNK2019: unresolved external symbol "public: void __thiscall Board::nextTurn(void)const " (?nextTurn@Board@@QBEXXZ) referenced in function "public: __thiscall TicTac::TicTac(void)" (??0TicTac@@QAE@XZ)
+     1>TicTac.obj : error LNK2019: unresolved external symbol "public: class Player * __thiscall Board::getCurrentPlayer(void)const " (?getCurrentPlayer@Board@@QBEPAVPlayer@@XZ) referenced in function "public: __thiscall TicTac::TicTac(void)" (??0TicTac@@QAE@XZ)
+     1>TicTac.obj : error LNK2019: unresolved external symbol "public: bool __thiscall Board::checkGameOver(void)const " (?checkGameOver@Board@@QBE_NXZ) referenced in function "public: __thiscall TicTac::TicTac(void)" (??0TicTac@@QAE@XZ)
+     1>TicTac.obj : error LNK2019: unresolved external symbol "public: __thiscall Board::Board(class Player * * const)" (??0Board@@QAE@QAPAVPlayer@@@Z) referenced in function "public: void __thiscall TicTac::setupBoard(void)" (?setupBoard@TicTac@@QAEXXZ)
+     1>MSVCRTD.lib(crtexe.obj) : error LNK2019: unresolved external symbol _main referenced in function ___tmainCRTStartup
+     1>C:\Users\David\documents\visual studio 2010\Projects\TicTac\Debug\TicTac.exe : fatal error LNK1120: 8 unresolved externals
+     1>Done Building Project "C:\Users\David\documents\visual studio 2010\Projects\TicTac\TicTac\TicTac.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:05.31
