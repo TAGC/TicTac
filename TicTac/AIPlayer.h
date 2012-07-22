@@ -5,13 +5,13 @@
 // a variant of the minimax algorithm.
 // ======================================================
 
-#include "TicTacUtil.h"
 #include "Player.h"
+#include "Board.h"
 
 class AIPlayer : public Player
 {
 public:
-	AIPlayer(string name, PLAY_STYLE playStyle);
+	AIPlayer(string name, PLAY_MARK playMark);
 	~AIPlayer();
 
 	int getChoice(Board* board)const;

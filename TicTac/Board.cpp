@@ -11,18 +11,20 @@ Board::Board(Player* players[2])
 		this->players[i] = players[i];
 	}
 
-	currentPlayer = players[0];
-
+	
 	for(int j=0; j < 9; j++)
 	{
 		spaces[j] = '-';
 	}
+
+	setCurrentPlayer(players[0]);
+	displayBoard();
 }
 
 Board::~Board()
 {
-	delete players;
-	delete spaces;
+	delete[] players;
+	delete[] spaces;
 	currentPlayer = NULL;
 }
 
@@ -30,10 +32,9 @@ bool Board::checkGameOver()const
 {
 	for(int i=0; i < 3; i++)
 	{
-		// Test to see if chaining == operator works!
-
 		// Check for horizontal line win.
-		if(spaces[i*3] == spaces[i*3+1] == spaces[i*3+2])
+
+		if(spaces[i*3] == spaces[i*3+1] && spaces[i*3] == spaces[i*3+2])
 		{
 			switch(spaces[i*3])
 			{
@@ -47,7 +48,7 @@ bool Board::checkGameOver()const
 		}
 
 		// Check for vertical line win.
-		else if(spaces[i] == spaces[3+i] == spaces[6+i])
+		else if(spaces[i] == spaces[3+i] && spaces[i] == spaces[6+i])
 		{
 			switch(spaces[i])
 			{
@@ -62,8 +63,8 @@ bool Board::checkGameOver()const
 	}
 
 	// Check for diagonal line win.
-	if((spaces[0] == spaces[4] == spaces[8]) || 
-	   (spaces[2] == spaces[4] == spaces[6]))
+	if((spaces[0] == spaces[4] && spaces[0] == spaces[8]) || 
+	   (spaces[2] == spaces[4] && spaces[2] == spaces[6]))
 	{
 		switch(spaces[4])
 		{
@@ -81,7 +82,10 @@ bool Board::checkGameOver()const
 
 void Board::getSpaces(char emptySpaces[9])
 {
-	emptySpaces = spaces;
+	for(int i=0; i < 9; i++)
+	{
+		emptySpaces[i] = spaces[i];
+	}
 }
 
 Player* Board::getCurrentPlayer()const
@@ -108,7 +112,7 @@ void Board::updateBoard(int position, PLAY_MARK playMark)
 
 void Board::nextTurn()
 {
-	int choice;
+	promptMove();
 
 	// Switch current player.
 	if(players[0] == getCurrentPlayer())
@@ -119,6 +123,11 @@ void Board::nextTurn()
 	{
 		setCurrentPlayer(players[0]);
 	}
+}
+
+void Board::promptMove()
+{
+	int choice;
 
 	string name = getCurrentPlayer()->getName();
 	cout << "Current player: " << name << "\n";
@@ -130,9 +139,10 @@ void Board::nextTurn()
 
 void Board::displayBoard()const
 {
-	cout << "\n";
-	for(int i = 0; i < 2; i++)
+	cout << endl;
+	for(int i = 0; i < 3; i++)
 	{
-		cout << spaces[i*3] << " " << spaces[i*3+1] << " " << spaces[i*3+2] << "\n";
+		cout << spaces[i*3] << " " << spaces[i*3+1] << " " << spaces[i*3+2] << endl;
 	}
+	cout << endl;
 }

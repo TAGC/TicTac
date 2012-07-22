@@ -4,13 +4,29 @@
 
 #include "AIPlayer.h"
 
-AIPlayer::AIPlayer(string name, PLAY_STYLE playStyle)
-:Player(name, playStyle)
+AIPlayer::AIPlayer(string name, PLAY_MARK playMark)
+:Player(name, playMark)
+{
+}
+
+AIPlayer::~AIPlayer()
 {
 }
 
 int AIPlayer::getChoice(Board* board)const
 {
-	cout << "AIPlayer getChoice()const called\n";
-	return int(rand()*9 + 1);
+	int choice;
+	char spaces[9];
+
+	cout << Player::getName() << " is thinking...\n";
+	Sleep(((float)rand()/(float)RAND_MAX)*5000 + 1000);
+
+	srand((unsigned) time(0));
+	board->getSpaces(spaces);
+	do
+	{
+		choice = ((float)rand()/(float)RAND_MAX)*9 + 1;
+	}
+	while(spaces[choice-1] != '-');
+	return choice;
 }

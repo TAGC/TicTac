@@ -9,16 +9,21 @@ TicTac::TicTac()
 {	
 	setGameMode();
 	setupBoard();
+}
 
+void TicTac::runGame()
+{
 	while(!board->checkGameOver())
 	{
 		// Do game stuff.
 		board->nextTurn();
 		board->displayBoard();
 	}
+
+
 }
 
-// Selects for single player or multiplayer mode.
+// Selects for AI-only, single player or multiplayer mode.
 void TicTac::setGameMode()
 {
 	cout << "Would you like play AI-only, single player or multiplayer? "
@@ -30,7 +35,7 @@ void TicTac::setGameMode()
 		if(confirm == 'A' || confirm == 'a')
 		{
 			cout << "\nAI-only mode selected.\n";
-			numHumanPlayers = 1;
+			numHumanPlayers = 0;
 			break;
 		}
 		else if(confirm == 'S' || confirm == 's')
@@ -47,7 +52,8 @@ void TicTac::setGameMode()
 		}
 		else
 		{
-			cout << "\nUnrecognised response. Please select game mode S/M: ";
+			cout << "\nUnrecognised response. Please select game mode A/S/M: ";
+			cin.ignore(1000, '\n');
 		}
 	}
 }
@@ -57,11 +63,12 @@ void TicTac::setGameMode()
 void TicTac::setupBoard()
 {
 	string name;
+	char   cName[2];
 	PLAY_MARK playMark;
 
 	for(int i = 0; i < numHumanPlayers; i++)
 	{
-		cout << "Player " << i << ", please enter your name: ";
+		cout << "Player " << (i+1) << ", please enter your name: ";
 
 		while(true)
 		{
@@ -75,7 +82,8 @@ void TicTac::setupBoard()
 			{
 
 				playMark = (i == 0) ? NOUGHTS : CROSSES;
-				cout << name << ", you're playing with " << playMark << ".\n";
+				cout << name << ", you're playing using ";
+				cout << (char)(playMark) << "'s.\n\n";
 				HumanPlayer* p = new HumanPlayer(name, playMark);
 
 				players[i] = dynamic_cast<Player*>(p);
@@ -94,12 +102,26 @@ void TicTac::setupBoard()
 
 	for(int i=0; i < 2 - numHumanPlayers; i++)
 	{
-		name = "BOT-" + (i+1);
 		playMark = (i == 1) ? NOUGHTS : CROSSES;
-		cout << name << "is playing with " << playMark << ".\n";
+		name = "BOT-" + string(itoa(i+1, cName, 10));
+		cout << name << " is playing using " << (char)playMark << "'s.\n\n";
 		AIPlayer* p = new AIPlayer(name, playMark);
 		players[1-i] = dynamic_cast<Player*>(p);
 	}
 
+	cout << "Player 1: " << players[0]->getName() << endl;
+	cout << "Player 2: " << players[1]->getName() << endl;
+
 	board = new Board(players);
+}
+
+int main(int argc, char* argv)
+{
+	TicTac* game = new TicTac();
+	game->runGame();
+
+	cout << endl;
+	system("PAUSE");
+
+	return 0;
 }

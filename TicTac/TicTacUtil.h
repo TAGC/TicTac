@@ -11,7 +11,9 @@
 #include <string>
 #include <iostream>
 using namespace std;
+#include <time.h>
+#include <Windows.h>
 
-enum PLAY_STYLE { NOUGHTS = 'o', CROSSES = 'x' };
+enum PLAY_MARK { NOUGHTS = 'O', CROSSES = 'X' };
 
 #endif

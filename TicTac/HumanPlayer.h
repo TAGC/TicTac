@@ -5,13 +5,13 @@
 // by accepting input from the keyboard.
 // ======================================================
 
-#include "TicTacUtil.h"
 #include "Player.h"
+#include "Board.h"
 
 class HumanPlayer : public Player
 {
 public:
-	HumanPlayer(string name, PLAY_STYLE playStyle);
+	HumanPlayer(string name, PLAY_MARK playMark);
 	~HumanPlayer();
 
 	int getChoice(Board* board)const;

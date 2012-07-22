@@ -9,12 +9,13 @@
 #define PLAYER_H
 
 #include "TicTacUtil.h"
-#include "Board.h"
+
+class Board;
 
 class Player
 {
 public:
-	Player(string name, PLAY_STYLE playStyle);
+	Player(string name, PLAY_MARK playMark);
 	virtual ~Player();
 
 	virtual int getChoice(Board* board)const = 0;
@@ -22,7 +23,7 @@ public:
 
 protected:
 	string name;
-	PLAY_STYLE playStyle;
+	PLAY_MARK playMark;
 };
 
 #endif

@@ -9,8 +9,13 @@ HumanPlayer::HumanPlayer(string name, PLAY_MARK playMark)
 {
 }
 
+HumanPlayer::~HumanPlayer()
+{
+}
+
 int HumanPlayer::getChoice(Board* board)const
 {
+	string input;
 	const char* strChoice;
 	int         choice;
 	char        spaces[9];
@@ -18,17 +23,20 @@ int HumanPlayer::getChoice(Board* board)const
 	// Load the state of the board into spaces.
 	board->getSpaces(spaces);
 
-	cout << getName();
+	cout << Player::getName();
 	cout << ", please select a position to play (1-9).\n";
-	cin >> choice;
+	cin >> input;
+	strChoice = input.c_str();
 	choice = atoi(strChoice);
-	
-	while(!isdigit(choice) || !(1 <= choice <= 9) || spaces[choice-1] != '-')
+
+	while(!isdigit(strChoice[0]) || !(1 <= choice && choice <= 9) 
+		|| spaces[choice-1] != '-')
 	{
 		cout << "That is an invalid position, please try again: \n";
-		cin >> choice;
-		choice = atoi(strChoice);
+		cin >> input;
+		strChoice = input.c_str();
+		choice = atoi(strChoice); 
 	}
 
-	return choice;
+	return choice;	
 }

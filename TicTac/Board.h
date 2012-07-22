@@ -27,6 +27,7 @@ private:
 	void    setCurrentPlayer(Player* player);
 	void    declareWinner(Player* player)const;
 	void    updateBoard(int position, PLAY_MARK playMark);
+	void    promptMove();
 
 private:
 	char    spaces[9];
