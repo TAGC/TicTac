@@ -1,23 +1,11 @@
-﻿Build started 22/07/2012 21:29:53.
+﻿Build started 23/07/2012 18:18:13.
      1>Project "C:\Users\David\documents\visual studio 2010\Projects\TicTac\TicTac\TicTac.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\TicTac.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt AIPlayer.cpp Board.cpp HumanPlayer.cpp Player.cpp TicTac.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt AIPlayer.cpp
          AIPlayer.cpp
-     1>c:\users\david\documents\visual studio 2010\projects\tictac\tictac\aiplayer.cpp(22): warning C4244: 'argument' : conversion from 'float' to 'DWORD', possible loss of data
-     1>c:\users\david\documents\visual studio 2010\projects\tictac\tictac\aiplayer.cpp(28): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-         Generating Code...
-         Compiling...
-         TicTac.cpp
-     1>c:\users\david\documents\visual studio 2010\projects\tictac\tictac\tictac.cpp(106): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdlib.h(867) : see declaration of 'itoa'
-         Player.cpp
-         HumanPlayer.cpp
-         Board.cpp
-     1>c:\users\david\documents\visual studio 2010\projects\tictac\tictac\board.cpp(26): warning C4154: deletion of an array expression; conversion to pointer supplied
-     1>c:\users\david\documents\visual studio 2010\projects\tictac\tictac\board.cpp(27): warning C4154: deletion of an array expression; conversion to pointer supplied
-         Generating Code...
+     1>c:\users\david\documents\visual studio 2010\projects\tictac\tictac\aiplayer.cpp(24): warning C4244: 'argument' : conversion from 'float' to 'DWORD', possible loss of data
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
@@ -40,4 +28,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.87
+Time Elapsed 00:00:02.46

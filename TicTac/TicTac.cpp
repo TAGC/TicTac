@@ -102,24 +102,25 @@ void TicTac::setupBoard()
 
 	for(int i=0; i < 2 - numHumanPlayers; i++)
 	{
-		playMark = (i == 1) ? NOUGHTS : CROSSES;
+		playMark = ((numHumanPlayers + i) == 1) ? CROSSES : NOUGHTS;
 		name = "BOT-" + string(itoa(i+1, cName, 10));
 		cout << name << " is playing using " << (char)playMark << "'s.\n\n";
 		AIPlayer* p = new AIPlayer(name, playMark);
-		players[1-i] = dynamic_cast<Player*>(p);
+		players[numHumanPlayers+i] = dynamic_cast<Player*>(p);
 	}
 
 	cout << "Player 1: " << players[0]->getName() << endl;
 	cout << "Player 2: " << players[1]->getName() << endl;
 
 	board = new Board(players);
+	board->displayBoard();
 }
 
 int main(int argc, char* argv)
 {
+
 	TicTac* game = new TicTac();
 	game->runGame();
-
 	cout << endl;
 	system("PAUSE");
 

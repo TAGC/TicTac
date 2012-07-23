@@ -6,7 +6,7 @@
 
 Player::Player(string name, PLAY_MARK playMark)
 {
-	this->name      = name;
+	this->name     = name;
 	this->playMark = playMark;
 }
 

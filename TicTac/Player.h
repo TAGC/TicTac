@@ -20,6 +20,7 @@ public:
 
 	virtual int getChoice(Board* board)const = 0;
 	string getName()const;
+	
 
 protected:
 	string name;

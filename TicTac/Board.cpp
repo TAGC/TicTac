@@ -18,7 +18,6 @@ Board::Board(Player* players[2])
 	}
 
 	setCurrentPlayer(players[0]);
-	displayBoard();
 }
 
 Board::~Board()
@@ -28,7 +27,8 @@ Board::~Board()
 	currentPlayer = NULL;
 }
 
-bool Board::checkGameOver()const
+// Returns whether the game is over and the winning player.
+bool Board::checkGameOver(Player *& winningPlayerOut)const
 {
 	for(int i=0; i < 3; i++)
 	{
@@ -39,10 +39,10 @@ bool Board::checkGameOver()const
 			switch(spaces[i*3])
 			{
 			case NOUGHTS:
-				declareWinner(players[0]);
+				winningPlayerOut = players[0];
 				return true;
 			case CROSSES:
-				declareWinner(players[1]);
+				winningPlayerOut = players[1];
 				return true;
 			}
 		}
@@ -53,10 +53,10 @@ bool Board::checkGameOver()const
 			switch(spaces[i])
 			{
 			case NOUGHTS:
-				declareWinner(players[0]);
+				winningPlayerOut = players[0];
 				return true;
 			case CROSSES:
-				declareWinner(players[1]);
+				winningPlayerOut = players[1];
 				return true;
 			}
 		}
@@ -69,18 +69,51 @@ bool Board::checkGameOver()const
 		switch(spaces[4])
 		{
 		case NOUGHTS:
-			declareWinner(players[0]);
+			winningPlayerOut = players[0];
 			return true;
 		case CROSSES:
-			declareWinner(players[1]);
+			winningPlayerOut = players[1];
 			return true;
 		}
 	}
 
-	return false;
+	for(int j=0; j < 9; j++)
+	{
+		if(spaces[j] == '-')
+		{
+			winningPlayerOut = 0;
+			return false;
+		}
+	}
+
+	winningPlayerOut = 0;
+	return true;
 }
 
-void Board::getSpaces(char emptySpaces[9])
+// Finds the winning player (if one) and declares them the winner.
+bool Board::checkGameOver()const
+{
+	Player* winningPlayer = 0;
+	bool gameOver;
+
+	gameOver = checkGameOver(winningPlayer);
+	if(gameOver && winningPlayer)
+	{
+		declareWinner(winningPlayer);
+		return true;
+	}
+	else if(gameOver)
+	{
+		declareWinner();
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void Board::getSpaces(char emptySpaces[9])const
 {
 	for(int i=0; i < 9; i++)
 	{
@@ -98,10 +131,17 @@ void Board::setCurrentPlayer(Player* player)
 	currentPlayer = player;
 }
 
+// Winner + loser.
 void Board::declareWinner(Player* player)const
 {
 	string winnerName = player->getName();
 	cout << winnerName << " wins the game!\n";
+}
+
+// Tie.
+void Board::declareWinner()const
+{
+	cout << "Tie! Neither player wins.\n";
 }
 
 //PRE: position is a valid position on the board (1-9).

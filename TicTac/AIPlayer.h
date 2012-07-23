@@ -16,5 +16,8 @@ public:
 
 	int getChoice(Board* board)const;
 	string getName()const;
+
+private:
+	int considerBoard(Board* board, int position, bool self, int depth)const;
 };
 
