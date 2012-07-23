@@ -42,8 +42,8 @@ int AIPlayer::getChoice(Board* board)const
 	{
 		if(spaces[i] == '-')
 		{
-			// Set fourth parameter (depth) = -1 to explore entire state space.
-			scores[i] = considerBoard(board, i+1, true, 2);
+			// Set 5th param (maxDepth) = -1 to explore entire state space.
+			scores[i] = considerBoard(board, i+1, true, 0, 1);
 			cout << "POS: " << (i+1) << ", SCORE: " << scores[i] << endl;
 		}
 		else
@@ -62,7 +62,7 @@ int AIPlayer::getChoice(Board* board)const
 }
 
 int AIPlayer::considerBoard(Board* board, int position, bool self,
-	int depth)const
+	int currDepth, int maxDepth)const
 {
 	Board*    consideredBoard;
 	PLAY_MARK opponentMark;
@@ -89,12 +89,12 @@ int AIPlayer::considerBoard(Board* board, int position, bool self,
 	playMark == NOUGHTS ? opponentMark = CROSSES : opponentMark = NOUGHTS;
 	consideredBoard->updateBoard(position, (self ? playMark : opponentMark));
 
-	cout << "Considering board if " << (self ? "BOT " : "OPPONENT ");
-	cout << "plays on position " << position << endl;
+	//cout << "Considering board if " << (self ? "BOT " : "OPPONENT ");
+	//cout << "plays on position " << position << endl;
 
 	consideredBoard->displayBoard();
 
-	getchar();
+	//getchar();
 
 	winningPlayer = 0;
 	gameOver = consideredBoard->checkGameOver(winningPlayer);
@@ -103,33 +103,33 @@ int AIPlayer::considerBoard(Board* board, int position, bool self,
 	{
 		if(winningPlayer == this)
 		{
-			cout << "WIN!\n";
-			getchar();
-			return 1;
+			//cout << "WIN!\n";
+			//getchar();
+			return  1 * (currDepth == 1 ? INT_MAX : 1);
 		}
 		else
 		{
-			cout << "LOSS!\n";
-			getchar();
-			return -1;
+			//cout << "LOSS!\n";
+			//getchar();
+			return -1 * (currDepth == 1 ? INT_MAX : 1);
 		}
 	}
 	// Endgame state - the AI and opponent tied (base case).
 	else if (gameOver)
 	{
-		cout << "TIE!\n";
-		getchar();
+		//cout << "TIE!\n";
+		//getchar();
 		return 0;
 	}
 	// Maximum recursion depth reached (base case).
-	else if (!depth)
+	else if (currDepth == maxDepth)
 	{
 		return 0;
 	}
 	// Intermediate state - recurse.
 	else
 	{
-		cout << "Within considerBoard() recursing!\n";
+		//cout << "Within considerBoard() recursing!\n";
 		// Update spaces to reflect state of consideredBoard.
 		consideredBoard->getSpaces(spaces);
 		gameScore = 0;
@@ -150,7 +150,7 @@ int AIPlayer::considerBoard(Board* board, int position, bool self,
 		{
 			if(spaces[i] == '-')
 			{
-				gameScore += considerBoard(consideredBoard, i+1, !self, depth-1);
+				gameScore += considerBoard(consideredBoard, i+1, !self, currDepth+1, maxDepth);
 			}
 		}
 

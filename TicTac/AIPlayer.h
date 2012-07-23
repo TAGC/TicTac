@@ -18,6 +18,7 @@ public:
 	string getName()const;
 
 private:
-	int considerBoard(Board* board, int position, bool self, int depth)const;
+	int considerBoard(Board* board, int position, bool self,
+		int currDepth, int maxDepth)const;
 };
 

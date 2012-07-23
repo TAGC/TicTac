@@ -1,15 +1,15 @@
-﻿Build started 23/07/2012 18:18:13.
-     1>Project "C:\Users\David\documents\visual studio 2010\Projects\TicTac\TicTac\TicTac.vcxproj" on node 2 (build target(s)).
+﻿Build started 23/07/2012 20:47:24.
+     1>Project "C:\Users\Amir\Documents\Visual Studio 2010\Projects\TicTac\TicTac\TicTac.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\TicTac.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt AIPlayer.cpp
          AIPlayer.cpp
-     1>c:\users\david\documents\visual studio 2010\projects\tictac\tictac\aiplayer.cpp(24): warning C4244: 'argument' : conversion from 'float' to 'DWORD', possible loss of data
+     1>c:\users\amir\documents\visual studio 2010\projects\tictac\tictac\aiplayer.cpp(24): warning C4244: 'argument' : conversion from 'float' to 'DWORD', possible loss of data
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\David\documents\visual studio 2010\Projects\TicTac\Debug\TicTac.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\TicTac.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\David\documents\visual studio 2010\Projects\TicTac\Debug\TicTac.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\David\documents\visual studio 2010\Projects\TicTac\Debug\TicTac.lib" /MACHINE:X86 Debug\TicTac.exe.embed.manifest.res
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Amir\Documents\Visual Studio 2010\Projects\TicTac\Debug\TicTac.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\TicTac.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Amir\Documents\Visual Studio 2010\Projects\TicTac\Debug\TicTac.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Amir\Documents\Visual Studio 2010\Projects\TicTac\Debug\TicTac.lib" /MACHINE:X86 Debug\TicTac.exe.embed.manifest.res
          Debug\AIPlayer.obj
          Debug\Board.obj
          Debug\HumanPlayer.obj
@@ -20,12 +20,12 @@
          All outputs are up-to-date.
        LinkEmbedManifest:
          All outputs are up-to-date.
-         TicTac.vcxproj -> C:\Users\David\documents\visual studio 2010\Projects\TicTac\Debug\TicTac.exe
+         TicTac.vcxproj -> C:\Users\Amir\Documents\Visual Studio 2010\Projects\TicTac\Debug\TicTac.exe
        FinalizeBuildStatus:
          Deleting file "Debug\TicTac.unsuccessfulbuild".
          Touching "Debug\TicTac.lastbuildstate".
-     1>Done Building Project "C:\Users\David\documents\visual studio 2010\Projects\TicTac\TicTac\TicTac.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\Amir\Documents\Visual Studio 2010\Projects\TicTac\TicTac\TicTac.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.46
+Time Elapsed 00:00:02.52
